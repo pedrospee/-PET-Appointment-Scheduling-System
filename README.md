@@ -1,8 +1,9 @@
 # &PET — Appointment Scheduling System
 
-A modular front-end scheduling application built with vanilla JavaScript (ES Modules), designed to demonstrate clean architecture, accessibility practices, and robust state management without frameworks.
+Modular appointment scheduling system built with vanilla JavaScript (ES Modules), featuring accessibility-first modal design, conflict prevention, and REST API integration.
 
 This project simulates a real-world appointment workflow for a pet service business, including time validation, conflict prevention, optimistic UI updates, and API persistence using a mock server.
+
 
 **Overview**
 
@@ -16,6 +17,7 @@ This project simulates a real-world appointment workflow for a pet service busin
 
 The project focuses on architecture clarity, separation of concerns, and predictable UI behavior.
 
+
 **Tech Stack**
 
 	•	JavaScript (ES Modules)
@@ -26,6 +28,7 @@ The project focuses on architecture clarity, separation of concerns, and predict
 	•	json-server (mock REST API)
 
 No UI frameworks were used. All DOM rendering is implemented with native APIs.
+
 
 **Architecture**
 
@@ -43,6 +46,18 @@ src/
  └── main.js             # Entry point
 ```
 
+
+**Engineering Highlights**
+
+	- Modular ES Modules architecture (no framework dependency)
+	- Deterministic rendering strategy
+	- Optimistic UI with rollback handling
+	- Client-side state per date
+	- Defensive validation layer
+	- Accessible modal with focus trap
+	- API abstraction layer
+
+
 **Design Principles**
 
 	•	Clear separation between business logic and DOM manipulation
@@ -50,6 +65,7 @@ src/
 	•	Deterministic rendering (no hidden implicit mutations)
 	•	Defensive validation on both UI interaction and submit
 	•	Accessibility-first approach (aria attributes, focus management, live regions)
+	
 
 **Features**
 ```
@@ -76,6 +92,7 @@ src/
 	•	Rollback on failure
 ```
 
+
 **Validation Rules**
 
 	•	Required fields: tutor, pet, phone, service, date, time
@@ -88,6 +105,7 @@ src/
   	•	13:00–18:00
   	•	19:00–22:00
 
+
 **Accessibility Considerations**
 
 	•	aria-modal and role=“dialog”
@@ -97,6 +115,7 @@ src/
 	•	aria-live region for global alerts
 	•	Per-field aria-describedby for validation errors
 	•	Visible keyboard focus indicators
+
 
 **Development Setup**
 
@@ -122,6 +141,7 @@ POST   /appointments
 DELETE /appointments/:id
 ```
 
+
 **Data Model**
 ```
 {
@@ -134,6 +154,7 @@ DELETE /appointments/:id
   "time": "HH:mm"
 }
 ```
+
 
 **Why This Project Matters**
 
@@ -149,6 +170,7 @@ This project demonstrates:
 
 It intentionally avoids UI libraries to show control over core JavaScript concepts and DOM manipulation.
 
+
 **Future Improvements**
 
 Potential production-level extensions:
@@ -161,6 +183,7 @@ Potential production-level extensions:
 	•	E2E test coverage
 	•	CI/CD pipeline
 	•	Dockerized environment
+
 
 **Author**
 
