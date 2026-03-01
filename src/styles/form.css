@@ -1,0 +1,63 @@
+/*
+Form (Modal)
+- Keeps the form layout predictable and readable.
+- All spacing and sizing are designed to avoid visual regressions.
+ */
+
+.form-group {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels are slightly emphasized to improve scanability. */
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+/* Inputs share a consistent surface, border, and sizing. */
+.form-group input {
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+/* Focus uses a visible ring for accessibility without changing layout. */
+.form-group input:focus {
+  outline: none;
+  border-color: var(--bg-yellow);
+  box-shadow: 0 0 0 3px rgba(245, 197, 24, 0.2);
+}
+
+/* Two-column layout for date/time fields inside the modal. */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/*
+Field-level validation feedback
+- Messages are shown below inputs.
+- A minimum height prevents layout shift when messages appear/disappear.
+ */
+
+.field-error {
+  display: block;
+  min-height: 1em;
+  margin-top: 4px;
+  font-size: 0.85em;
+  line-height: 1.2;
+  color: var(--danger, #b00020);
+}
+
+/* Invalid state only changes border color (no spacing/size changes). */
+.is-invalid {
+  border-color: var(--danger, #b00020) !important;
+}

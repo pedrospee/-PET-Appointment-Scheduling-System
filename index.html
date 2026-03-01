@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&PET — Agenda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="app">
+      <header class="logo-header">
+        <h1 class="logo">&PET</h1>
+
+        <main class="shell">
+          <header class="agenda-header">
+            <div class="agenda-title">
+              <h2>Agenda</h2>
+              <input type="date" id="agendaDate" />
+            </div>
+            <button id="newAppointmentBtn" type="button" class="btn-primary">
+              Novo Agendamento
+            </button>
+          </header>
+
+          <div
+            id="appAlerts"
+            class="sr-only"
+            aria-live="polite"
+            aria-atomic="true"
+          ></div>
+
+          <section class="period">
+            <header class="period__header">
+              <h3 class="period__title">Manhã</h3>
+              <span class="period__time-range">09h-12h</span>
+            </header>
+
+            <ul class="period__list" id="list-morning">
+              <!-- Example item (kept as reference only; real items are rendered by JS)
+              <li class="appointment">
+                <span class="appointment__time">09:30</span>
+                <div class="appointment__info">
+                  <strong>Luna</strong>
+                  <span>Mariana / Banho e Tosa</span>
+                </div>
+                <button class="appointment__delete" type="button">Remover</button>
+              </li>
+              -->
+            </ul>
+          </section>
+
+          <section class="period">
+            <header class="period__header">
+              <h3 class="period__title">Tarde</h3>
+              <span class="period__time-range">13h-18h</span>
+            </header>
+
+            <ul class="period__list" id="list-afternoon">
+              <!-- Example item (kept as reference only; real items are rendered by JS) -->
+            </ul>
+          </section>
+
+          <section class="period">
+            <header class="period__header">
+              <h3 class="period__title">Noite</h3>
+              <span class="period__time-range">19h-22h</span>
+            </header>
+
+            <ul class="period__list" id="list-night">
+              <!-- Example item (kept as reference only; real items are rendered by JS) -->
+            </ul>
+          </section>
+        </main>
+      </header>
+    </div>
+
+    <div
+      class="modal"
+      id="appointmentModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+      tabindex="-1"
+    >
+      <div class="modal__overlay" id="modalOverlay"></div>
+
+      <div class="modal__dialog">
+        <header class="modal__header">
+          <h2 id="modalTitle">Agende um Atendimento</h2>
+        </header>
+
+        <form class="modal__form" id="appointmentForm" novalidate>
+          <div class="form-group">
+            <label for="tutor">Tutor</label>
+            <input
+              id="tutor"
+              name="tutor"
+              type="text"
+              placeholder="Nome do Tutor"
+              autocomplete="name"
+            />
+            <small class="field-error" data-error-for="tutor" aria-live="polite"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="pet">Pet</label>
+            <input id="pet" name="pet" type="text" placeholder="Nome do Pet" />
+            <small class="field-error" data-error-for="pet" aria-live="polite"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Telefone</label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              inputmode="numeric"
+              maxlength="15"
+              placeholder="(00)0 0000-0000"
+            />
+            <small class="field-error" data-error-for="phone" aria-live="polite"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="service">Serviço</label>
+            <input id="service" name="service" type="text" placeholder="Ex: Banho" />
+            <small class="field-error" data-error-for="service" aria-live="polite"></small>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="date">Data</label>
+              <input id="date" name="date" type="date" />
+              <small class="field-error" data-error-for="date" aria-live="polite"></small>
+            </div>
+
+            <div class="form-group">
+              <label for="time">Hora</label>
+              <input id="time" name="time" type="time" />
+              <small class="field-error" data-error-for="time" aria-live="polite"></small>
+            </div>
+          </div>
+
+          <footer class="modal__footer">
+            <button type="button" id="btnCancelModal" data-action="close-modal">
+              Cancelar
+            </button>
+            <button type="submit" class="btn-primary">Finalizar Agendamento</button>
+          </footer>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

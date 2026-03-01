@@ -1,0 +1,22 @@
+{
+  "appointments": [
+    {
+      "id": "E1nG05auo0X4xoj8Pwl4z",
+      "tutor": "Pedro",
+      "pet": "Bob",
+      "phone": "(84)9 9999-9999",
+      "service": "Banho",
+      "date": "2026-03-01",
+      "time": "12:00"
+    },
+    {
+      "id": "cm2gsOsAsxJZ94eQiEpTe",
+      "tutor": "Pedro",
+      "pet": "Bob",
+      "phone": "(11)9 9999-9999",
+      "service": "Banho",
+      "date": "2026-03-01",
+      "time": "15:30"
+    }
+  ]
+}

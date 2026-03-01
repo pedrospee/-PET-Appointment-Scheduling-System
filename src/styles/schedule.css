@@ -1,0 +1,120 @@
+/*
+Modal
+- The modal is hidden by default and displayed by toggling .is-open.
+- The overlay blocks background interaction.
+- Styles are intentionally minimal and stable to avoid layout regressions.
+*/
+
+/* Base modal container (hidden by default). */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Open state (used by JS controller). */
+.modal.is-open {
+  display: flex;
+}
+
+/* 
+Backward compatibility:
+Some earlier iterations used an overlay element with [hidden]. 
+*/
+.modal-overlay[hidden] {
+  display: none !important;
+}
+
+/* Full-screen overlay that visually separates modal from background content. */
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+/* Dialog surface and entrance animation. */
+.modal__dialog {
+  position: relative;
+  background: var(--card-bg);
+  width: 100%;
+  max-width: 500px;
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  animation: modalIn 0.3s ease-out;
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header keeps the title centered. */
+.modal__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+/* The HTML uses an h2 for the modal title. */
+.modal__header h2 {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Optional close button styling (reserved for future UI evolution). */
+.modal__close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--text-sec);
+  cursor: pointer;
+}
+
+/* Footer layout: buttons share the available space on small screens. */
+.modal__footer {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.modal__footer button {
+  flex: 1;
+}
+
+/* On larger screens, keep buttons visually balanced with a minimum width. */
+@media (min-width: 480px) {
+  .modal__footer button {
+    flex: none;
+    min-width: 140px;
+  }
+}
+
+/*
+Accessibility
+- Ensure keyboard users can see where focus is.
+*/
+
+.appointment__delete:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
