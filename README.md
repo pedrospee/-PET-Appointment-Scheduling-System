@@ -187,4 +187,4 @@ Potential production-level extensions:
 
 **Author**
 
-Pedro — Automation Manager with a focus on scalable front-end architecture and modular JavaScript applications.
+Pedro — Software Engineering Student with a focus on scalable front-end architecture and modular JavaScript applications.
